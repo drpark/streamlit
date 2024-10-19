@@ -31,7 +31,7 @@ site = st.selectbox(
     data.index)  # Colonne des sites
 
 
-st.write(data.loc[site])
+
 # Afficher le site selectionne
 df = pd.DataFrame(dict(
     # attention utliser loc plutot que iloc , iloc pour i nombre
