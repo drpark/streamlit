@@ -47,11 +47,10 @@ st.write('Vitesse des sites par ordre croissant')
 
 
 sorted=data.sort_values(by="Vitesse de chargement", ascending=True)
-sorted.to_csv('data_sites_web_sorted.csv')
-sorted = pd.read_csv('data_sites_web_sorted.csv')
+
 plt.figure(figsize=(10, 6))
 
-sns.barplot(x=sorted['Sites internet '], y=sorted['Vitesse de chargement'],
+sns.barplot(x=sorted.index, y=sorted['Vitesse de chargement'],
             data=sorted, palette='Blues_d')
 
 # Rotation des labels de l'axe x pour qu'ils ne se chevauchent pas
