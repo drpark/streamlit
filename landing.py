@@ -31,7 +31,6 @@ site = st.selectbox(
     data.index)  # Colonne des sites
 
 
-
 # Afficher le site selectionne
 df = pd.DataFrame(dict(
     # attention utliser loc plutot que iloc , iloc pour i nombre
@@ -46,7 +45,7 @@ st.plotly_chart(fig)
 st.write('Vitesse des sites par ordre croissant')
 
 
-sorted=data.sort_values(by="Vitesse de chargement", ascending=True)
+sorted = data.sort_values(by="Vitesse de chargement", ascending=True)
 
 plt.figure(figsize=(10, 6))
 
@@ -56,7 +55,14 @@ sns.barplot(x=sorted.index, y=sorted['Vitesse de chargement'],
 # Rotation des labels de l'axe x pour qu'ils ne se chevauchent pas
 plt.xticks(rotation=45, ha='right')
 
-
-
 # Afficher le graphique dans Streamlit
+st.pyplot(plt)
+
+plt.figure(figsize=(10, 8))
+
+# Générer le heatmap
+
+sns.heatmap(data.corr(), annot=True, cmap='Blues')
+
+
 st.pyplot(plt)
